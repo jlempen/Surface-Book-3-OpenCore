@@ -142,7 +142,7 @@ The `Secure Boot` setting ***must be disabled to boot macOS***. I also recommend
 In order to fix the skipping/lagging trackpad in macOS and make the trackpad and keyboard work after hibernation, you must downgrade your UEFI firmware to the last known working version `13.101.140.0`.
 
 1. Boot with a Linux Live USB stick, preferably a Debian, Arch or Fedora based distribution (I use the Arch-based Manjaro).
-2. Download and unzip the compressed firmware archive [SL3_FW13.101.140.0.zip](https://github.com/jlempen/Surface-Book-3-OpenCore/blob/main/UEFI%20Firmware/SurfaceBook3_FW_13.101.140.0.zip) from this repository.
+2. Download and unzip the compressed firmware archive [SurfaceBook3_FW_13.101.140.0.zip](https://github.com/jlempen/Surface-Book-3-OpenCore/blob/main/UEFI%20Firmware/SurfaceBook3_FW_13.101.140.0.zip) from this repository.
 3. Add the line `OnlyTrusted=false` to the `/etc/fwupd/daemon.conf` config file.
 4. Open a terminal and navigate to the folder where you extracted the firmware files.
 5. Connect your Surface device to a power supply.
