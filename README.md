@@ -7,7 +7,7 @@ macOS on the Microsoft Surface Book 3 thanks to [Acidanthera's OpenCore bootload
 | Software         | Version                            |
 | ---------------- | ---------------------------------- |
 | Target OS        | Apple macOS 15 Sequoia, 14 Sonoma and 13 Ventura |
-| OpenCore         | [OC v1.0.1](https://github.com/acidanthera/OpenCorePkg/releases/download/1.0.1/OpenCore-1.0.1-RELEASE.zip) |
+| OpenCore         | [MOD-OC v1.0.3](https://github.com/wjz304/OpenCore_NO_ACPI_Build/releases/download/1.0.3_20b758b/OpenCore-Mod-1.0.3-RELEASE.zip) |
 | SMBIOS           | MacBookPro16,2 |
 | SSD format       | APFS file system, GPT partition table |
 
