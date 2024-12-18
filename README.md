@@ -1,6 +1,6 @@
 ![OpenCore logo](https://github.com/acidanthera/OpenCorePkg/raw/master/Docs/Logos/OpenCore_with_text_Small.png)
 
-# Surface-Laptop-3-OpenCore
+# Surface-Book-3-OpenCore
 macOS on the Microsoft Surface Book 3 thanks to [Acidanthera's OpenCore bootloader](https://github.com/acidanthera/OpenCorePkg).
   
 ## Software Specifications
@@ -12,17 +12,23 @@ macOS on the Microsoft Surface Book 3 thanks to [Acidanthera's OpenCore bootload
 | SSD format       | APFS file system, GPT partition table |
 
 ## Abstract
-With its nice display, large and smooth trackpad, comfortable keyboard and its quite decent speakers, the `Surface Book 3` series is an excellent Hackintosh laptop. Moreover, the M.2 2230 SSD can be swapped easily for a larger one.
+The `Intel 13.5-Inch and 15-Inch Surface Book 3` line of laptops runs macOS quite well. However, as a few things don't work as expected, it is hard to recommend the Surface Book 3 as a Hackintosh laptop.
 
-Apart from ACPI S3 Sleep which is broken, everything on the `Intel 13.5-Inch and 15-Inch Surface Book 3` is working perfectly like on a real Mac. ACPI S4 Hibernate works great, though, and resuming from Hibernation takes around ten to fifteen seconds. The advantage Hibernate has over Sleep is that the device doesn't consume any power while in a hibernated state.
+Only the battery of the clipboard (tablet part of the laptop) is detected by macOS. The much larger battery in the keyboard deck is not appearing in the power settings.
+
+The keyboard and the trackpad are disabled after reattaching the clipboard (tablet part of the laptop) to the keyboard deck. The touchscreen is still working, though.
+
+The cameras are not working at all.
+
+ACPI S3 Sleep is broken, but ACPI S4 Hibernate works great, though, and resuming from Hibernation takes around ten to fifteen seconds. The advantage Hibernate has over Sleep is that the device doesn't consume any power while in a hibernated state.
 
 The battery runtime is around five hours.
 
 > [!TIP]
-> For a near-perfect Hackintosh laptop, I recommend installing `macOS 13 Ventura` for now, as the builtin Intel Wireless chip works almost perfectly with Apple's iServices and Continuity features on Ventura.
+> I recommend installing `macOS 13 Ventura` for now, as the builtin Intel Wireless chip works almost perfectly with Apple's iServices and Continuity features on Ventura.
 
 > [!IMPORTANT]
-> In order to have a working trackpad and keyboard in the installer as well as in the installed OS, you **MUST** downgrade the firmware of your `Surface Book 3` before launching the installer. To do so, [follow these straightforward instructions](https://github.com/jlempen/Surface-Laptop-3-OpenCore?tab=readme-ov-file#downgrading-the-uefi-firmware).
+> In order to have a working trackpad and keyboard in the installer as well as in the installed OS, you **MUST** downgrade the firmware of your `Surface Book 3` before launching the installer. To do so, [follow these straightforward instructions](https://github.com/jlempen/Surface-Book-3-OpenCore?tab=readme-ov-file#downgrading-the-uefi-firmware).
 
 ## Disclaimer
 This repository is neither a howto nor an installation manual. Using these files requires at least basic knowledge of [Acidanthera's OpenCore bootloader](https://github.com/acidanthera/OpenCorePkg), ACPI, UEFI and the art of hackintoshing in general. I recommend reading the excellent [Dortania's OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide), as well as all its linked resources. For those who wish to improve their hackintoshing knowledge, [5T33Z0's OC-Little-Translated](https://github.com/5T33Z0/OC-Little-Translated) repository is the most comprehensive resource I've found on the subject.
@@ -38,7 +44,7 @@ Please be aware that all `PlatformInfo` and `SMBIOS` information was removed fro
 
 An UEFI firmware released by Micro$oft in August 2023 broke the Surface Book 3's trackpad in macOS in several ways. Downgrading the UEFI firmware to the last known working version `13.101.140.0` is required to fix the trackpad and hibernate mode 25 on macOS. See the detailed instructions below to easily downgrade the UEFI firmware. This needs to be done before installing any version of macOS or you won't have a working trackpad and/or keyboard during installation.
 
-`AirportItlwm-Ventura.kext`, `AirportItlwm-Sonoma140.kext` and `AirportItlwm-Sonoma144.kext` from the [OpenIntelWireless repo](https://github.com/OpenIntelWireless/itlwm) are required to enable the Wifi chip. This EFI will dynamically load the appropriate kext for macOS Ventura or Sonoma depending on the running kernel. No need to manually replace the kext file when updating your version of macOS. As the Intel Wifi chip does not yet work with the `AirportItlwm.kext` in macOS Sequoia, you'll need to use the `Itlwm.kext` and its companion app [HeliPort](https://github.com/OpenIntelWireless/HeliPort/releases) to connect to a Wifi network. You'll find the latest stable `HeliPort.dmg` in the [Tools folder](https://github.com/jlempen/Surface-Laptop-3-OpenCore/blob/main/Tools/HeliPort.dmg) of this repo. This EFI will dynamically load the `Itlwm.kext` instead of `AirportItlwm.kext` when you boot into macOS Sequoia.
+`AirportItlwm-Ventura.kext`, `AirportItlwm-Sonoma140.kext` and `AirportItlwm-Sonoma144.kext` from the [OpenIntelWireless repo](https://github.com/OpenIntelWireless/itlwm) are required to enable the Wifi chip. This EFI will dynamically load the appropriate kext for macOS Ventura or Sonoma depending on the running kernel. No need to manually replace the kext file when updating your version of macOS. As the Intel Wifi chip does not yet work with the `AirportItlwm.kext` in macOS Sequoia, you'll need to use the `Itlwm.kext` and its companion app [HeliPort](https://github.com/OpenIntelWireless/HeliPort/releases) to connect to a Wifi network. You'll find the latest stable `HeliPort.dmg` in the [Tools folder](https://github.com/jlempen/Surface-Book-3-OpenCore/blob/main/Tools/HeliPort.dmg) of this repo. This EFI will dynamically load the `Itlwm.kext` instead of `AirportItlwm.kext` when you boot into macOS Sequoia.
 
 Windows and Linux should be detected automagically by the OpenCore boot loader even when installed after macOS.
 
@@ -50,17 +56,19 @@ Windows and Linux should be detected automagically by the OpenCore boot loader e
 | ---------------- | ---------------------------------- |
 | CPU              | Intel Core i7-1065G7 or Intel Core i5-1035G7 |
 | iGPU             | Intel Iris Plus Graphics |
+| dGPU             | NVIDIA GeForce GTX 1650 or 1660 Ti with Max-Q Design |
 | Audio            | Realtek ALC274 |
-| RAM              | 8 or 16 GB RAM |
+| RAM              | 8, 16 or 32 GB RAM |
 | Wifi + Bluetooth | Wifi6 AX200, Bluetooth 5.0 |
-| Storage          | Kioxia/Toshiba/SK Hynix PCIe NVMe 2230 SSD |
+| Storage          | Kioxia/Toshiba/SK Hynix PCIe SSD |
 | USB Type-C 3.1 Gen 1 | Supports Power Delivery and DisplayPort |
-| Camera | 720p |
+| SDXC Card Reader | Full size SDXC UHS-I / UHS-II USB Card Reader |
+| Cameras | 5 MP front and 8 MP rear cameras with 1080p HD video |
 | IR camera | Intel(R) AVStream Camera 2500, ISP Interface |
-| Keyboard / Trackpad | Microsoft Type Cover |
-| Display | 13.50 inch 3:2, 2256 x 1504 pixel or 15 inch 3:2, 2496 x 1664 pixel 201 PPI |
+| Keyboard / Trackpad | Detachable keyboard/trackpad deck |
+| Display | 13.50 inch 3:2, 3000 x 2000 or 15 inch 3:2, 3240 x 2160 201 PPI |
 | Touchscreen | 10-point capacitive |
-| Battery | |
+| Dual batteries | One battery in the clipboard and one in the keyboard deck |
 | Ambient light sensor | |
 </details>
 
@@ -74,6 +82,7 @@ Windows and Linux should be detected automagically by the OpenCore boot loader e
 - [x] SSD drive
 - [x] USB-C port
 - [x] USB-A port
+- [x] USB SDXC card reader
 - [x] WLAN
 - [x] Bluetooth
 - [x] 720p camera
@@ -96,7 +105,8 @@ Windows and Linux should be detected automagically by the OpenCore boot loader e
   
 ## What needs some more work
 - [ ] Sleep (hibernatemode 3) - the device only turns off the display without sleeping
-- [ ] On macOS Sequoia, the user needs to close and open the lid again to wake up the display after hibernation
+- [ ] The battery of the keyboard deck does not appear in the power settings
+- [ ] The keyboard and the trackpad are disabled after the clipboard (tablet part) is reattached to the keyboard deck
 </details>
 
 <details>
@@ -104,6 +114,8 @@ Windows and Linux should be detected automagically by the OpenCore boot loader e
   
 ## What will probably never work
 - [ ] IR camera (Windows Hello)
+- [ ] Front camera
+- [ ] Rear camera
 </details>
 
 <details>
@@ -130,7 +142,7 @@ The `Secure Boot` setting ***must be disabled to boot macOS***. I also recommend
 In order to fix the skipping/lagging trackpad in macOS and make the trackpad and keyboard work after hibernation, you must downgrade your UEFI firmware to the last known working version `13.101.140.0`.
 
 1. Boot with a Linux Live USB stick, preferably a Debian, Arch or Fedora based distribution (I use the Arch-based Manjaro).
-2. Download and unzip the compressed firmware archive [SL3_FW13.101.140.0.zip](https://github.com/jlempen/Surface-Laptop-3-OpenCore/blob/main/UEFI%20Firmware/SL3_FW13.101.140.0.zip) from this repository.
+2. Download and unzip the compressed firmware archive [SL3_FW13.101.140.0.zip](https://github.com/jlempen/Surface-Book-3-OpenCore/blob/main/UEFI%20Firmware/SurfaceBook3_FW_13.101.140.0.zip) from this repository.
 3. Add the line `OnlyTrusted=false` to the `/etc/fwupd/daemon.conf` config file.
 4. Open a terminal and navigate to the folder where you extracted the firmware files.
 5. Connect your Surface device to a power supply.
