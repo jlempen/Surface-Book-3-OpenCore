@@ -87,7 +87,6 @@ Windows and Linux should be detected automagically by the OpenCore boot loader e
 - [x] USB SDXC card reader
 - [x] WLAN
 - [x] Bluetooth
-- [x] 720p camera
 - [x] Internal speakers, microphone and Combojack
 - [x] Power, volume up and volume down buttons
 - [x] Keyboard with working brightness, volume and mute keys, working caps lock light
@@ -107,8 +106,8 @@ Windows and Linux should be detected automagically by the OpenCore boot loader e
   
 ## What needs some more work
 - [ ] Sleep (hibernatemode 3) - the device only turns off the display without sleeping
-- [ ] The battery of the keyboard deck does not appear in the power settings
-- [ ] The keyboard and the trackpad are disabled after the clipboard (tablet part) is reattached to the keyboard deck
+- [ ] The battery in the keyboard deck does not appear in the power settings
+- [ ] The keyboard and the trackpad are unresponsive after the clipboard (tablet part) is reattached to the keyboard deck
 </details>
 
 <details>
@@ -145,7 +144,14 @@ In order to fix the skipping/lagging trackpad in macOS and make the trackpad and
 
 1. Boot with a Linux Live USB stick, preferably a Debian, Arch or Fedora based distribution (I use the Arch-based Manjaro).
 2. Download and unzip the compressed firmware archive [SurfaceBook3_FW_13.101.140.0.zip](https://github.com/jlempen/Surface-Book-3-OpenCore/blob/main/UEFI%20Firmware/SurfaceBook3_FW_13.101.140.0.zip) from this repository.
-3. Add the line `OnlyTrusted=false` to the `/etc/fwupd/daemon.conf` config file.
+3. Add the line `OnlyTrusted=false` to the `/etc/fwupd/daemon.conf` config file. On some Linux distros such as Arch, endeavourOS and Manjaro, the config file to change is `/etc/fwupd/fwupd.conf`:
+```
+sudo nano /etc/fwupd/daemon.conf
+```
+or
+```
+sudo nano /etc/fwupd/fwupd.conf
+```
 4. Open a terminal and navigate to the folder where you extracted the firmware files.
 5. Connect your Surface device to a power supply.
 6. Copy the following lines and paste them into the terminal:
