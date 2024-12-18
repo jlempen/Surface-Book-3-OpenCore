@@ -207,6 +207,39 @@ I recommend downloading and installing [BetterDisplay](https://github.com/waydab
 </details>
 
 <details>
+  <summary>Installing the IPTSDaemon to enable the touchscreen</summary>
+  
+## Installing the IPTSDaemon to enable the touchscreen
+The [IPTSDaemon](https://github.com/Xiashangning/IPTSDaemon) is a tool made by the author of BigSurface [Xiashangning](https://github.com/Xiashangning). It enables the touchscreen on Surface devices running macOS.
+
+1. Download the [IPTSDaemon](https://github.com/jlempen/Surface-Book-3-OpenCore/blob/main/Tools/IPTSDaemon.zip)
+2. Unzip the downloaded file
+3. Open a `Terminal` and navigate to the `IPTSDaemon` folder:
+```
+cd /Downloads/IPTSDaemon/IPTSDaemon
+```
+4. Run the `install_daemon.sh` file:
+```
+sudo bash install_daemon.sh
+```
+5. Enter your password to install the daemon
+
+Now you'll see a nasty popup window:
+
+![Nasty popup window](https://github.com/user-attachments/assets/eacbfe79-04a4-4bd8-b851-ba83cd55e9b6)
+
+This is actually macOS's way of telling you that Apple considers that the software is from an untrusted source because it is unsigned. But it's actually very easy to tell it to open the file anyway.
+
+Click on the "Show in Finder" button of this popup window, then right-click on the `libinih.0.dylib` file and select the first option, "Open". Nothing will happen, but the annoying popup window will not show anymore for this file. Now repeat the same procedure for the `libfmt.9.dylib` file and you're done.
+
+Perhaps you'll need to repeat this a few times, as the popup window appearing for one file will block the "Open" popup window for the other file and vice versa. Basically, once there's no warning popup appearing anymore, both files were registered and started.
+
+You may now verify that the multitouch gestures are working on your touchscreen by playing around with the standard macOS multitouch gestures you're used to on your trackpad, but the same gestures now work on the touchscreen as well :-)
+
+These instructions are confirmed working on SL3 and SB3 running macOS Ventura and Sonoma. On macOS Sequoia, the procedure is pretty much similar, but there won't be a "Show in Finder" button in the popup window. To open the dylib files, you'll have to go to the `System Settings` -> `Privacy and Security` -> `Security` section and open the files from there.
+</details>
+
+<details>
   <summary>Fixing broken Apple Messages and FaceTime</summary>
   
 ## Fixing broken Apple Messages and FaceTime
