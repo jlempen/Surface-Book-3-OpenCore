@@ -103,7 +103,7 @@ Windows and Linux should be detected automagically by the OpenCore boot loader e
 - [x] Surface Pen
 - [x] Ambient light sensor
 - [x] Battery percentage and cycle count
-- [x] Hibernation (hibernatemode 25) - the device successfully wakes up from hibernation mode
+- [x] Hibernation (hibernatemode 25) - the device successfully wakes up from hibernation
 - [x] USB Type-C to HDMI
 - [x] USB Type-C to USB3 & USB2
 - [x] USB Type-C Power Delivery
@@ -116,6 +116,7 @@ Windows and Linux should be detected automagically by the OpenCore boot loader e
 - [ ] Sleep (hibernatemode 3) - the device only turns off the display without sleeping
 - [ ] The battery in the keyboard deck does not appear in the power settings
 - [ ] The keyboard and the trackpad are unresponsive after the clipboard (tablet part) is reattached to the keyboard deck
+- [ ] On macOS 15 Sequoia, the NVIDIA dGPU will not power down, which results in much higher temperatures and decreased battery life
 </details>
 
 <details>
