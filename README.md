@@ -35,6 +35,9 @@ The battery runtime is around five hours.
 > 
 > If this method doesn't work for you, you could also add the boot argument `-igfxvesa` to the `NVRAM` -> `7C436110-AB2A-4BBB-A880-FE41995C9F82` -> `boot-args` section of your `config.plist` file. This disables the Intel Graphics acceleration. Once macOS is installed, simply remove the `-igfxvesa` boot argument from your `config.plist` file and reboot your laptop to enjoy full graphics acceleration.
 
+> [!CAUTION]
+> At the moment, it is not possible to have Windows installed on the device at the same time as macOS, as Windows will immediately update to the latest firmware again when you boot into Windows, even if you turn off your WiFi or disable automatic Windows Updates. I haven't found a way to prevent this behaviour yet. Any kind of Linux distribution is fine, though.
+
 ## Disclaimer
 This repository is neither a howto nor an installation manual. Using these files requires at least basic knowledge of [Acidanthera's OpenCore bootloader](https://github.com/acidanthera/OpenCorePkg), ACPI, UEFI and the art of hackintoshing in general. I recommend reading the excellent [Dortania's OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide), as well as all its linked resources. For those who wish to improve their hackintoshing knowledge, [5T33Z0's OC-Little-Translated](https://github.com/5T33Z0/OC-Little-Translated) repository is the most comprehensive resource I've found on the subject.
 
@@ -176,7 +179,7 @@ Now restart while holding the F4/Volume Up key to check the firmware version in 
 
 Reboot and you're done.
 
-If you are using Windows on the laptop, you'll have to find a way to prevent Windows Update from updating the firmware to the latest version again! I don't know how to do that, but DuckDuckGo is your friend.
+If you are using Windows on the laptop, you'll have to find a way to prevent Windows Update from automatically updating the firmware to the latest firmware version again on the next reboot into Windows! I haven't found a way to prevent this yet. Any kind of Linux distribution is fine, though.
 </details>
 
 <details>
