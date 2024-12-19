@@ -28,7 +28,12 @@ The battery runtime is around five hours.
 > I recommend installing `macOS 13 Ventura` for now, as the builtin Intel Wireless chip works almost perfectly with Apple's iServices and Continuity features on Ventura.
 
 > [!IMPORTANT]
-> In order to have a working trackpad and keyboard in the installer as well as in the installed OS, you **MUST** downgrade the firmware of your `Surface Book 3` before launching the installer. To do so, [follow these straightforward instructions](https://github.com/jlempen/Surface-Book-3-OpenCore?tab=readme-ov-file#downgrading-the-uefi-firmware).
+> The keyboard and trackpad are now working in the installer as well as in the installed OS, but the trackpad will be lagging/skipping every few seconds. Furthermore, the keyboard and trackpad will be unresponsive after resume from hibernation. To fix these issues, you **MUST** downgrade the firmware of your `Surface Book 3`. To do so, [follow these straightforward instructions](https://github.com/jlempen/Surface-Book-3-OpenCore?tab=readme-ov-file#downgrading-the-uefi-firmware). Then, you **MUST** also replace `BigSurface.kext` and its dependencies with `BigSurfaceSLB3.kext` and its dependencies in your `config.plist` file by following these detailed instructions.
+
+> [!WARNING]
+> If the display turns off right before the installer starts, simply shut down your Surface Book by pressing the power button for 15 to 20 seconds and power it back on to reboot into the installer again. It might take two or three attempts. Also, there might be a few display artifacts during the installation, but the display will work just fine in the installed system.
+> 
+> If this method doesn't work for you, you could also add the boot argument `-igfxvesa` to the `NVRAM` -> `7C436110-AB2A-4BBB-A880-FE41995C9F82` -> `boot-args` section of your `config.plist` file. This disables the Intel Graphics acceleration. Once macOS is installed, simply remove the `-igfxvesa` boot argument from your `config.plist` file and reboot your laptop to enjoy full graphics acceleration.
 
 ## Disclaimer
 This repository is neither a howto nor an installation manual. Using these files requires at least basic knowledge of [Acidanthera's OpenCore bootloader](https://github.com/acidanthera/OpenCorePkg), ACPI, UEFI and the art of hackintoshing in general. I recommend reading the excellent [Dortania's OpenCore Install Guide](https://dortania.github.io/OpenCore-Install-Guide), as well as all its linked resources. For those who wish to improve their hackintoshing knowledge, [5T33Z0's OC-Little-Translated](https://github.com/5T33Z0/OC-Little-Translated) repository is the most comprehensive resource I've found on the subject.
@@ -172,6 +177,31 @@ Now restart while holding the F4/Volume Up key to check the firmware version in 
 Reboot and you're done.
 
 If you are using Windows on the laptop, you'll have to find a way to prevent Windows Update from updating the firmware to the latest version again! I don't know how to do that, but DuckDuckGo is your friend.
+</details>
+
+<details>
+  <summary>Replacing BigSurface.kext with BigSurfaceSLB3.kext</summary>
+  
+## Replacing BigSurface.kext with BigSurfaceSLB3.kext
+Additionally, to fix the skipping/lagging trackpad in macOS and make the trackpad and keyboard work after hibernation, you also have to replace the official `BigSurface.kext` with the `BigSurfaceSLB3.kext`. 
+
+In the `Kernel` -> `Add` section of your `config.plist` file, disable or delete the following kexts:
+```
+BigSurface.kext/Contents/PlugIns/VoodooGPIO.kext
+BigSurface.kext/Contents/PlugIns/VoodooSerial.kext
+BigSurface.kext/Contents/PlugIns/VoodooInput.kext
+BigSurface.kext
+BigSurface.kext/Contents/PlugIns/BigSurfaceHIDDriver.kext
+```
+Then enable the following kexts:
+```
+BigSurfaceSLB3.kext/Contents/PlugIns/VoodooGPIO.kext
+BigSurfaceSLB3.kext/Contents/PlugIns/VoodooSerial.kext
+BigSurfaceSLB3.kext/Contents/PlugIns/VoodooInput.kext
+BigSurfaceSLB3.kext
+BigSurfaceSLB3.kext/Contents/PlugIns/BigSurfaceHIDDriver.kext
+```
+Save your `config.plist` file and reboot. Your trackpad should now be buttery smooth before and after resuming from hibernation. The keyboard will now also work after resuming from hibernation.
 </details>
 
 <details>
