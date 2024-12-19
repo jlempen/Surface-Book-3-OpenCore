@@ -288,4 +288,6 @@ The latest version 2.3.0 of itlwm.kext is already included in the Kext folder an
   
 ## Related repositories
 * https://github.com/jc-bao/surface-laptop3-ventura
+* https://github.com/Xiashangning/BigSurface
+* https://github.com/Xiashangning/IPTSDaemon
 </details>
