@@ -28,7 +28,7 @@ The battery runtime is around five hours.
 > I recommend installing `macOS 13 Ventura` rather than the newer `macOS 14 Sonoma` or `macOS 15 Sequoia`. The builtin Intel Wireless chip works almost perfectly with Apple's iServices and Continuity features on Ventura while those features are partially broken at the moment on newer versions of macOS.
 
 > [!IMPORTANT]
-> For macOS to be able to boot on the Surface Book 3, the `Secure Boot` option _**must be disabled**_ in the UEFI. The boot screen will then display a large red bar with a lock icon at the top of the display when Secure Boot is disabled. This is normal.
+> For macOS to be able to boot on the Surface Book 3, the `Secure Boot` option _**must be disabled**_ [in the UEFI](https://github.com/jlempen/Surface-Book-3-OpenCore#uefi-settings). The boot screen will then display a large red bar with a padlock symbol at the top of the display when Secure Boot is disabled.
 
 > [!IMPORTANT]
 > The keyboard and trackpad are now working in the installer as well as in the installed OS, but the trackpad will be lagging/skipping every few seconds. Furthermore, the keyboard and trackpad will be unresponsive after resuming from hibernation. To fix those issues, you **MUST** downgrade the firmware of your `Surface Book 3`. To do so, [follow these instructions](https://github.com/jlempen/Surface-Book-3-OpenCore?tab=readme-ov-file#downgrading-the-uefi-firmware).
