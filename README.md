@@ -16,7 +16,7 @@ The `Intel 13.5-Inch and 15-Inch Surface Book 3` line of laptops runs macOS quit
 
 Only the battery of the clipboard (tablet part of the laptop) is detected by macOS. The much larger battery in the keyboard deck is not appearing in the power settings.
 
-The keyboard and the trackpad are disabled after reattaching the clipboard (tablet part of the laptop) to the keyboard deck. The touchscreen is still working, though.
+The keyboard and the trackpad are unresponsive after reattaching the clipboard (tablet part of the laptop) to the keyboard deck. The touchscreen is still working, though.
 
 The cameras are not working at all.
 
@@ -25,10 +25,10 @@ ACPI S3 Sleep is broken, but ACPI S4 Hibernate works great, though, and resuming
 The battery runtime is around five hours.
 
 > [!TIP]
-> I recommend installing `macOS 13 Ventura` for now, as the builtin Intel Wireless chip works almost perfectly with Apple's iServices and Continuity features on Ventura.
+> I recommend installing `macOS 13 Ventura` rather than the newer `macOS 14 Sonoma` or `macOS 15 Sequoia`. The builtin Intel Wireless chip works almost perfectly with Apple's iServices and Continuity features on Ventura while those features are partially broken at the moment on newer versions of macOS.
 
 > [!IMPORTANT]
-> The keyboard and trackpad are now working in the installer as well as in the installed OS, but the trackpad will be lagging/skipping every few seconds. Furthermore, the keyboard and trackpad will be unresponsive after resume from hibernation. To fix these issues, you **MUST** downgrade the firmware of your `Surface Book 3`. To do so, [follow these straightforward instructions](https://github.com/jlempen/Surface-Book-3-OpenCore?tab=readme-ov-file#downgrading-the-uefi-firmware). Then, you **MUST** also replace `BigSurface.kext` and its dependencies with `BigSurfaceSLB3.kext` and its dependencies in your `config.plist` file by following [these detailed instructions](https://github.com/jlempen/Surface-Book-3-OpenCore/blob/main/README.md#replacing-bigsurfacekext-with-bigsurfaceslb3kext).
+> The keyboard and trackpad are now working in the installer as well as in the installed OS, but the trackpad will be lagging/skipping every few seconds. Furthermore, the keyboard and trackpad will be unresponsive after resuming from hibernation. To fix those issues, you **MUST** downgrade the firmware of your `Surface Book 3`. To do so, [follow these instructions](https://github.com/jlempen/Surface-Book-3-OpenCore?tab=readme-ov-file#downgrading-the-uefi-firmware). Then, you **MUST** also replace `BigSurface.kext` and its dependencies with `BigSurfaceSLB3.kext` and its dependencies in your `config.plist` file by following [these instructions](https://github.com/jlempen/Surface-Book-3-OpenCore/blob/main/README.md#replacing-bigsurfacekext-with-bigsurfaceslb3kext).
 
 > [!WARNING]
 > If the display turns off right before the installer starts, simply shut down your Surface Book by pressing the power button for 15 to 20 seconds and power it back on to reboot into the installer again. It might take two or three attempts. Also, there might be a few display artifacts during the installation, but the display will work just fine in the installed system.
@@ -47,7 +47,7 @@ Please be aware that all `PlatformInfo` and `SMBIOS` information was removed fro
 
 `BigSurfaceSLB3.kext` is required to enable the trackpad, the keyboard, the touchscreen, the battery status, the power and volume buttons and the ambient light sensor. Updating this `kext` with the official one from [Xiashangning's BigSurface repo](https://github.com/Xiashangning/BigSurface) will most certainly break something! `BigSurfaceSLB3.kext` is a modified version of `BigSurface` v6.5 which fixes the skipping/lagging trackpad and hibernate mode 25.
 
-An UEFI firmware released by Micro$oft in August 2023 broke the Surface Book 3's trackpad in macOS in several ways. Downgrading the UEFI firmware to the last known working version `13.101.140.0` is required to fix the trackpad and hibernate mode 25 on macOS. See the detailed instructions below to easily downgrade the UEFI firmware. This needs to be done before installing any version of macOS or you won't have a working trackpad and/or keyboard during installation.
+An UEFI firmware released by Micro$oft in August 2023 broke the Surface Book 3's trackpad in macOS in several ways. Downgrading the UEFI firmware to the last known working version `13.101.140.0` is required to fix the trackpad and hibernate mode 25 on macOS. See the detailed instructions below to easily downgrade the UEFI firmware.
 
 `AirportItlwm-Ventura.kext`, `AirportItlwm-Sonoma140.kext` and `AirportItlwm-Sonoma144.kext` from the [OpenIntelWireless repo](https://github.com/OpenIntelWireless/itlwm) are required to enable the Wifi chip. This EFI will dynamically load the appropriate kext for macOS Ventura or Sonoma depending on the running kernel. No need to manually replace the kext file when updating your version of macOS. As the Intel Wifi chip does not yet work with the `AirportItlwm.kext` in macOS Sequoia, you'll need to use the `Itlwm.kext` and its companion app [HeliPort](https://github.com/OpenIntelWireless/HeliPort/releases) to connect to a Wifi network. You'll find the latest stable `HeliPort.dmg` in the [Tools folder](https://github.com/jlempen/Surface-Book-3-OpenCore/blob/main/Tools/HeliPort.dmg) of this repo. This EFI will dynamically load the `Itlwm.kext` instead of `AirportItlwm.kext` when you boot into macOS Sequoia.
 
