@@ -116,7 +116,6 @@ Windows and Linux should be detected automagically by the OpenCore boot loader e
 - [ ] Sleep (hibernatemode 3) - the device only turns off the display without sleeping
 - [ ] The battery in the keyboard deck does not appear in the power settings
 - [ ] The keyboard and the trackpad are unresponsive after the clipboard (tablet part) is reattached to the keyboard deck
-- [ ] On macOS 15 Sequoia, the NVIDIA dGPU will not power down, which results in much higher temperatures and decreased battery life
 </details>
 
 <details>
