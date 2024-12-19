@@ -279,6 +279,48 @@ These instructions are confirmed working on SL3 and SB3 running macOS Ventura an
 </details>
 
 <details>
+  <summary>Rotating the display</summary>
+  
+## Rotating the display
+### Rotating the display with the Display Rotation Menu widget
+[Display Rotation Menu](https://www.magesw.com/displayrotation/) by Mage Software is a free app designed to quickly rotate the display between Landscape, Portrait, Landscape Flipped or Portrait Flipped right from a menu bar widget. There's also a handy keyboard shortcut to rotate the display back to Landscape: `CTRL-OPTION-COMMAND-0` (as in "zero").
+
+<img width="282" alt="Display Rotation Menu" src="https://github.com/user-attachments/assets/ac058eda-6a75-4979-9f3c-907a8837f07f">
+
+The first time you rotate the display to a portrait orientation, the resolution is set to 1280x1920, which is way too small for the SB3's display. You'll need to head over to the `Displays` tab in the `System Settings` and set the only other available resolution, 640x960, which is quite perfect on our Surface Book 3 in portrait orientation.
+
+However, once the display is in portrait orientation, it is very likely that the menu bar will not be able to show the Display Rotation Menu widget anymore because there's not enough space to display every widget in the narrow portrait-mode menu bar. To fix this, hold down the `Command` key while dragging the Display Rotation Menu widget next to the macOS `Control Center` widget. If there is still not enough space to show the widget, you could also change the size of the clock by disabling the `Show date` and/or `Show the day of the week` items or even change the style of the clock to `Analog` in the `Clock Options` of macOS.
+
+[Download Mage Software's Display Rotation Menu v1.5](https://www.magesw.com/displayrotation/DisplayRotationMenu_1.5.zip)
+
+### Rotating the display with BetterTouchTool
+[BetterTouchTool](https://folivora.ai/) by folivora.ai is a great, feature packed app that allows you to customize various input devices on your Mac.
+
+With BetterTouchTool, you could define customised Trackpad/Touchscreen gestures to rotate your Surface Book 3's display. 
+
+You could for instance assign a Four-Finger Double-Tap gesture to the Display Rotation Menu widget's keyboard shortcut `CTRL-OPTION-COMMAND-0` (as in "zero") to switch back to landscape orientation. 
+
+Or you could use BetterTouchTool together with jakehilborn's [displayplacer command line tool](https://github.com/jakehilborn/displayplacer) to define Rotate Left and Rotate Right gestures which would execute Async, non blocking Terminal Commands such as `/usr/local/bin/displayplacer degree:0` for landscape orientation and `/usr/local/bin/displayplacer degree:90` for portrait orientation.
+
+[Download BetterTouchTool](https://folivora.ai/releases/BetterTouchTool.zip) by folivora.ai
+
+[Download displayplacer](https://github.com/jakehilborn/displayplacer/releases/tag/v1.4.0) by jakehilborn
+</details>
+
+<details>
+  <summary>Enabling the On-Screen Keyboard</summary>
+  
+## Enabling the On-Screen Keyboard
+macOS has a very nice On-Screen Keyboard readily available in the Accessibility Settings. To enable it, navigate to `System Settings -> Accessibility -> Accessibility Keyboard -> Enable`. When you minimize the keyboard, it shrinks down to a small button that can be dragged to a convenient location in a corner of the screen. There are plenty of options to configure the keyboard to your liking.
+
+### Enabling the On-Screen Keyboard on the Lock Screen
+Navigate to `System Settings -> Lock Screen -> Accessibility Options -> Accessibility Keyboard -> Enable` to enable the On-Screen Keyboard on the Lock Screen.
+
+### Showing/hiding the On-Screen Keyboard with touchscreen gestures
+The most convenient way to show/hide the On-Screen Keyboard when using the Surface Book 3 as a tablet is with a touchscreen gesture. Here's how to set this up: navigate to `System Settings -> Accessibility -> Shortcuts` and uncheck every option but `Accessibility Keyboard`. This enables the keyboard shortcut `OPTION-COMMAND-F5` to show/hide the On-Screen Keyboard. Now use [BetterTouchTool](https://folivora.ai/) to assign this keyboard shortcut to a Trackpad/Touchscreen gesture. 
+</details>
+
+<details>
   <summary>Fixing broken Apple Messages and FaceTime</summary>
   
 ## Fixing broken Apple Messages and FaceTime
