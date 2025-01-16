@@ -230,6 +230,8 @@ Once you are back in macOS, disable Sleep and enable Hibernate again, then reboo
 sudo pmset restoredefaults
 sudo pmset -a hibernatemode 25
 ```
+
+Keep in mind that once the Surface Go 2 hibernates, you need to let it hibernate for a couple of minutes before waking it up. Failing to do so will disrupt hibernation and the device will then wake up on the dreaded black screen with the Surface logo without the red bar and padlock. You'll have to turn it off forcefully by pressing on the power button for 10 seconds.
 </details>
 
 <details>
@@ -329,6 +331,8 @@ The most convenient way to show/hide the On-Screen Keyboard when using the Surfa
 ## Fixing broken Apple Messages and FaceTime
 To fix issues with Apple Messages and FaceTime related to the [Intel Wireless driver](https://github.com/OpenIntelWireless/itlwm) on macOS Sonoma, disable all `AirportItlwm-***.kext` entries under `Kernel -> Add` in your `config.plist` file and use the [itlwm_v2.3.0_stable.kext.zip](https://github.com/OpenIntelWireless/itlwm/releases/download/v2.3.0/itlwm_v2.3.0_stable.kext.zip) and its companion app [HeliPort](https://github.com/OpenIntelWireless/HeliPort/releases/download/v1.5.0/HeliPort.dmg) instead.
 The latest version 2.3.0 of itlwm.kext is already included in the Kext folder and `config.plist` file.
+
+In addition to the above, to enable `itlwm.kext` under macOS Ventura and macOS Sonoma, you need to delete any text (i.e. `24.0.0` and `24.99.99` respectively) in the `MinKernel` and `MaxKernel` fields under `Kernel -> Add -> itlwm.kext` in your `config.plist` file.
 </details>
 
 <details>
