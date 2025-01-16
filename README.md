@@ -231,7 +231,9 @@ sudo pmset restoredefaults
 sudo pmset -a hibernatemode 25
 ```
 
-Keep in mind that once the Surface Go 2 hibernates, you need to let it hibernate for a couple of minutes before waking it up. Failing to do so will disrupt hibernation and the device will then wake up on the dreaded black screen with the Surface logo without the red bar and padlock. You'll have to turn it off forcefully by pressing on the power button for 10 seconds.
+It's also a good idea to reset the NVRAM before rebooting into macOS. To do so, press the space bar in the OpenCore picker and use the arrow keys to select `Reset NVRAM`.
+
+Keep in mind that once the Surface Book 3 hibernates, you need to let it hibernate for a couple of minutes before waking it up. Failing to do so will disrupt hibernation and the device will hang. You'll have to turn it off forcefully by pressing on the power button for 10 seconds. Sometimes you even need to press the power button for up to 20 seconds to restart the laptop.
 </details>
 
 <details>
