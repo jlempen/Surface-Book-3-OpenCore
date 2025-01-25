@@ -11,6 +11,11 @@ macOS on the Microsoft Surface Book 3 thanks to [Acidanthera's OpenCore bootload
 | SMBIOS           | MacBookPro16,2 |
 | SSD format       | APFS file system, GPT partition table |
 
+> [!NOTE]
+> This repo is kept alive for informational purposes only.
+>
+> As I don't own this laptop anymore, I won't be able to provide any help or update for it.
+
 ## Abstract
 The `Intel 13.5-Inch and 15-Inch Surface Book 3` line of laptops runs macOS quite well. However, a few things are still broken.
 
