@@ -66,6 +66,14 @@
                 </dict>
                 <dict>
                     <key>Comment</key>
+                    <string>SSDT-DGPU-OFFA.aml</string>
+                    <key>Enabled</key>
+                    <false/>
+                    <key>Path</key>
+                    <string>SSDT-DGPU-OFFA.aml</string>
+                </dict>
+                <dict>
+                    <key>Comment</key>
                     <string>SSDT-GPRW.aml</string>
                     <key>Enabled</key>
                     <false/>
