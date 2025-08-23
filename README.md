@@ -7,7 +7,7 @@ macOS on the Microsoft Surface Book 3 thanks to [Acidanthera's OpenCore bootload
 | Software         | Version                            |
 | ---------------- | ---------------------------------- |
 | Target OS        | Apple macOS 15 Sequoia, 14 Sonoma and 13 Ventura |
-| OpenCore         | [MOD-OC v1.0.3](https://github.com/wjz304/OpenCore_NO_ACPI_Build/releases/download/1.0.3_20b758b/OpenCore-Mod-1.0.3-RELEASE.zip) |
+| OpenCore         | [MOD-OC v1.0.5](https://github.com/wjz304/OpenCore_NO_ACPI_Build/releases/download/1.0.5_b56882c/OpenCore-Mod-1.0.5-RELEASE.zip) |
 | SMBIOS           | MacBookPro16,2 |
 | SSD format       | APFS file system, GPT partition table |
 
@@ -112,7 +112,6 @@ Windows and Linux should be detected automagically by the OpenCore boot loader e
 - [x] Ambient light sensor
 - [x] Battery percentage and cycle count for the battery in the clipboard (the tablet part)
 - [x] Hibernation (hibernatemode 25) - the device successfully wakes up from hibernation
-- [x] USB Type-C to HDMI
 - [x] USB Type-C to USB3 & USB2
 - [x] USB Type-C Power Delivery
 </details>
@@ -133,6 +132,7 @@ Windows and Linux should be detected automagically by the OpenCore boot loader e
 - [ ] IR camera (Windows Hello)
 - [ ] Front camera
 - [ ] Rear camera
+- [ ] Display output through USB-C
 </details>
 
 <details>
@@ -239,6 +239,23 @@ sudo pmset -a hibernatemode 25
 It's also a good idea to reset the NVRAM before rebooting into macOS. To do so, press the space bar in the OpenCore picker and use the arrow keys to select `Reset NVRAM`.
 
 Keep in mind that once the Surface Book 3 hibernates, you need to let it hibernate for a couple of minutes before waking it up. Failing to do so will disrupt hibernation and the device will hang. You'll have to turn it off forcefully by pressing on the power button for 10 seconds. Sometimes you even need to press the power button for up to 20 seconds to restart the laptop.
+</details>
+
+<details>
+  <summary>Alternative method for disabling the NVIDIA dGPU</summary>
+  
+## Alternative method for disabling the NVIDIA dGPU
+On some configurations of the `Surface Book 3`, the default method for disabling the NVIDIA dGPU appears to not work at all. If the base (keyboard) part of your `Surface Book 3` gets very hot and the fans are constantly running, you very likely have one of those machines. To enable the alternative fix found by [HenryMDB](https://github.com/jlempen/Surface-Book-3-OpenCore/issues/3#issuecomment-3214852161), follow the steps below.
+
+In the `ACPI` -> `Add` section of your `config.plist` file, disable the following SSDT:
+```
+SSDT-dGPU-Off.aml
+```
+And enable the following SSDT:
+```
+SSDT-DGPU-OFFA.aml
+```
+Save your `config.plist` file and reboot.
 </details>
 
 <details>
