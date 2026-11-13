@@ -917,7 +917,7 @@
                     <key>Comment</key>
                     <string>V1.2.0</string>
                     <key>Enabled</key>
-                    <false/>
+                    <true/>
                     <key>ExecutablePath</key>
                     <string>Contents/MacOS/VoodooGPIO</string>
                     <key>MaxKernel</key>
@@ -935,7 +935,7 @@
                     <key>Comment</key>
                     <string>V1.2</string>
                     <key>Enabled</key>
-                    <false/>
+                    <true/>
                     <key>ExecutablePath</key>
                     <string>Contents/MacOS/VoodooSerial</string>
                     <key>MaxKernel</key>
@@ -953,7 +953,7 @@
                     <key>Comment</key>
                     <string>V1.1.5</string>
                     <key>Enabled</key>
-                    <false/>
+                    <true/>
                     <key>ExecutablePath</key>
                     <string>Contents/MacOS/VoodooInput</string>
                     <key>MaxKernel</key>
@@ -971,7 +971,7 @@
                     <key>Comment</key>
                     <string>V1.3.0</string>
                     <key>Enabled</key>
-                    <false/>
+                    <true/>
                     <key>ExecutablePath</key>
                     <string>Contents/MacOS/BigSurface</string>
                     <key>MaxKernel</key>
@@ -989,7 +989,7 @@
                     <key>Comment</key>
                     <string>V1.0.0</string>
                     <key>Enabled</key>
-                    <false/>
+                    <true/>
                     <key>ExecutablePath</key>
                     <string>Contents/MacOS/BigSurfaceHIDDriver</string>
                     <key>MaxKernel</key>
@@ -1007,7 +1007,7 @@
                     <key>Comment</key>
                     <string>V1.2.0</string>
                     <key>Enabled</key>
-                    <true/>
+                    <false/>
                     <key>ExecutablePath</key>
                     <string>Contents/MacOS/VoodooGPIO</string>
                     <key>MaxKernel</key>
@@ -1025,7 +1025,7 @@
                     <key>Comment</key>
                     <string>V1.2</string>
                     <key>Enabled</key>
-                    <true/>
+                    <false/>
                     <key>ExecutablePath</key>
                     <string>Contents/MacOS/VoodooSerial</string>
                     <key>MaxKernel</key>
@@ -1043,7 +1043,7 @@
                     <key>Comment</key>
                     <string>V1.1.5</string>
                     <key>Enabled</key>
-                    <true/>
+                    <false/>
                     <key>ExecutablePath</key>
                     <string>Contents/MacOS/VoodooInput</string>
                     <key>MaxKernel</key>
@@ -1061,7 +1061,7 @@
                     <key>Comment</key>
                     <string>V1.2.0</string>
                     <key>Enabled</key>
-                    <true/>
+                    <false/>
                     <key>ExecutablePath</key>
                     <string>Contents/MacOS/BigSurface</string>
                     <key>MaxKernel</key>
@@ -1079,7 +1079,7 @@
                     <key>Comment</key>
                     <string>V1.0.0</string>
                     <key>Enabled</key>
-                    <true/>
+                    <false/>
                     <key>ExecutablePath</key>
                     <string>Contents/MacOS/BigSurfaceHIDDriver</string>
                     <key>MaxKernel</key>
